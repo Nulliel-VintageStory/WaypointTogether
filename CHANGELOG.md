@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.2...v1.0.3) (2023-06-21)
+
+
+### Bug Fixes
+
+* add modinfo to generic version updater ([130074e](https://github.com/Nulliel-VintageStory/WaypointTogether/commit/130074e3c159e7994adb77dd010b0d10e0565658))
+* test extra-files support ([0adbc8d](https://github.com/Nulliel-VintageStory/WaypointTogether/commit/0adbc8d63ae13b8fd001847241e78b512b3e3a8b))
+
 ## [1.0.2](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.1...v1.0.2) (2023-06-21)
 
 
