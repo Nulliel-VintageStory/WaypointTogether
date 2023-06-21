@@ -9,16 +9,16 @@
 			<HintPath>lib/vintagestory/VintagestoryAPI.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-		<Reference Include="VintagestoryAPI">
+		<Reference Include="VintagestoryLib">
+			<HintPath>lib/vintagestory/VintagestoryLib.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VSEssentials">
 			<HintPath>lib/vintagestory/Mods/VSEssentials.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-		<Reference Include="VintagestoryAPI">
+		<Reference Include="VSSurvivalMod">
 			<HintPath>lib/vintagestory/Mods/VSSurvivalMod.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="VintagestoryLib">
-			<HintPath>lib/vintagestory/VintagestoryLib.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
 		<Reference Include="HarmonyLib">
