@@ -27,7 +27,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - name: Update modinfo
         run: |
-          jq '.version = "${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}"' resources/modinfo.json | sponge resources/modinfo.json
+          cat resources/modinfo.json | jq '.version = "${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}"' | tee resources/modinfo.json
         if: ${{ steps.release.outputs.release_created }}
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
