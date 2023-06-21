@@ -21,6 +21,12 @@ jobs:
         id: release
         with:
           release-type: simple
+          extra-files: |
+            [{
+                "type": "json",
+                "path": "resources/modinfo.json",
+                "jsonpath": "$.version"
+            }]
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -43,8 +49,11 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
         if: ${{ steps.release.outputs.release_created }}
+      - name: Rename artifact
+        run: mv ./bin/WaypointTogether.zip ./bin/WaypointTogether-${{ matrix.vintagestory-version }}-${{ steps.release.outputs.tag_name }}.zip
+        if: ${{ steps.release.outputs.release_created }}
       - name: Upload release artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload WaypointTogether-${{ matrix.vintagestory-version }}-${{ steps.release.outputs.tag_name }}.zip ./bin/WaypointTogether.zip
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./bin/WaypointTogether-${{ matrix.vintagestory-version }}-${{ steps.release.outputs.tag_name }}.zip
         if: ${{ steps.release.outputs.release_created }}
