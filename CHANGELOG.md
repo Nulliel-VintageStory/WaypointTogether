@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.4...v1.0.5) (2023-06-21)
+
+
+### Bug Fixes
+
+* use tee instead of sponge ([9dac131](https://github.com/Nulliel-VintageStory/WaypointTogether/commit/9dac13188275df1e9043fd619ba29bc2afc855d4))
+
 ## [1.0.4](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.3...v1.0.4) (2023-06-21)
 
 
