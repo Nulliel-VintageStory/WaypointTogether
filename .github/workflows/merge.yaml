@@ -1,0 +1,51 @@
+name: Main Merged
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [6.0.x]
+        vintagestory-version: [1.18.5]
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v3
+        id: release
+        with:
+          release-type: simple
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Configure VintageStory Libs
+        run: |
+          cd "${GITHUB_WORKSPACE}/lib"
+          wget https://cdn.vintagestory.at/gamefiles/stable/vs_archive_${{ matrix.vintagestory-version }}.tar.gz
+          tar -xvf vs_archive_${{ matrix.vintagestory-version }}.tar.gz
+          rm vs_archive_${{ matrix.vintagestory-version }}.tar.gz
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Install dependencies
+        run: dotnet restore
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: WaypointTogether-${{ matrix.vintagestory-version }}-v${{ steps.release.outputs.tag_name }}.zip
+          path: bin/WaypointTogether.zip
+        if: ${{ steps.release.outputs.release_created }}
