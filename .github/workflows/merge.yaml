@@ -22,11 +22,7 @@ jobs:
         with:
           release-type: simple
           extra-files: |
-            [{
-                "type": "json",
-                "path": "resources/modinfo.json",
-                "jsonpath": "$.version"
-            }]
+            resources/modinfo.json
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
