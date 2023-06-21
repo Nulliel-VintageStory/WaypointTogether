@@ -21,11 +21,13 @@ jobs:
         id: release
         with:
           release-type: simple
-          extra-files: |
-            resources/modinfo.json
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Update modinfo
+        run: |
+          jq '.version = "${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}"' resources/modinfo.json | sponge resources/modinfo.json
         if: ${{ steps.release.outputs.release_created }}
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
