@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.3...v1.0.4) (2023-06-21)
+
+
+### Bug Fixes
+
+* set modinfo version using a step instead of through release-please ([a851b2f](https://github.com/Nulliel-VintageStory/WaypointTogether/commit/a851b2fd9e8a722cac1e7648a060fa09cdf4a32d))
+
 ## [1.0.3](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.2...v1.0.3) (2023-06-21)
 
 
