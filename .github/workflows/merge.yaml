@@ -43,9 +43,8 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
         if: ${{ steps.release.outputs.release_created }}
-      - name: Upload dotnet test results
-        uses: actions/upload-artifact@v3
-        with:
-          name: WaypointTogether-${{ matrix.vintagestory-version }}-v${{ steps.release.outputs.tag_name }}.zip
-          path: bin/WaypointTogether.zip
+      - name: Upload release artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload WaypointTogether-${{ matrix.vintagestory-version }}-${{ steps.release.outputs.tag_name }}.zip ./bin/WaypointTogether.zip
         if: ${{ steps.release.outputs.release_created }}
