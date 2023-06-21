@@ -3,7 +3,7 @@
 	"modid": "waypointtogether",
 	"name": "WaypointTogether",
 	"authors": ["nulliel"],
-	"version": "x-release-please-version",
+	"version": "1.0.0",
 	"dependencies": {
 		"game": "1.18.5"
 	}
