@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.1...v1.0.2) (2023-06-21)
+
+
+### Bug Fixes
+
+* upload build to github release ([eab04c8](https://github.com/Nulliel-VintageStory/WaypointTogether/commit/eab04c8e679e9be72e1643898a8783e40a5d2abf))
+
 ## [1.0.1](https://github.com/Nulliel-VintageStory/WaypointTogether/compare/v1.0.0...v1.0.1) (2023-06-21)
 
 
